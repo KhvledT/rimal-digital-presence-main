@@ -11,6 +11,12 @@ const quickLinks = [
   { label: "Contact", path: "/contact" },
 ];
 
+const socialLinks = [
+  { icon: instagramIcon, label: "Instagram", href: "#" },
+  { icon: twitterIcon, label: "Twitter", href: "#" },
+  { icon: linkedinIcon, label: "LinkedIn", href: "#" },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-charcoal text-beige/80">
@@ -20,14 +26,14 @@ const Footer = () => {
           <div>
             <h4 className="font-serif text-lg text-beige mb-6">Connect</h4>
             <div className="flex gap-4">
-              {[instagramIcon , twitterIcon, linkedinIcon].map((platform) => (
+              {socialLinks.map((social) => (
                 <a
-                  key={platform}
-                  href="#"
-                  aria-label={platform}
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
                   className="w-10 h-10 border border-gold/40 flex items-center justify-center text-gold/70 hover:text-gold hover:border-gold transition-colors duration-300"
                 >
-                  <img src={platform} />
+                  <img src={social.icon} alt={social.label} />
                 </a>
               ))}
             </div>

@@ -1,62 +1,189 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import Layout from "@/components/Layout";
 import { siteContent } from "@/data/content";
+import { ShoppingBag, Utensils, Building2, Briefcase, Factory, Monitor } from "lucide-react";
+
+const sectorIcons = [ShoppingBag, Utensils, Building2, Briefcase, Factory, Monitor];
+
+const sectorDetails = [
+  {
+    name: "Retail & Fashion",
+    description: "Footwear, apparel, and lifestyle brands that define modern taste and cultural identity.",
+    approach: "We curate and bring the world's most sought-after brands to local markets, creating retail experiences that resonate with diverse communities.",
+  },
+  {
+    name: "Food & Beverage",
+    description: "Cafés, restaurants, and franchise operations that deliver exceptional dining experiences.",
+    approach: "From concept development to operations, we build F&B ventures that combine culinary excellence with smart business strategy.",
+  },
+  {
+    name: "Real Estate",
+    description: "Strategic development and investment in properties that shape communities.",
+    approach: "We identify high-potential real estate opportunities, developing spaces that serve both commercial goals and community needs.",
+  },
+  {
+    name: "Services & Holdings",
+    description: "Strategic investments and diversified services powering regional growth.",
+    approach: "Our holdings portfolio spans strategic investments that create long-term value while supporting our group's broader mission.",
+  },
+  {
+    name: "Manufacturing",
+    description: "Expanding into new production sectors with agility and precision.",
+    approach: "We value upcycling and sustainability, recognizing that the future belongs to companies that balance progress with people and the environment.",
+  },
+  {
+    name: "Technology",
+    description: "Digital innovation and emerging platforms driving the next era of commerce.",
+    approach: "We invest in digital transformation, building technology-forward solutions that complement our physical business operations.",
+  },
+];
+
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, delay: i * 0.1, ease: "easeOut" as const },
+  }),
+};
 
 const Businesses = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
   return (
     <Layout>
-      <section className="pt-32 pb-20 bg-sand">
-        <div className="section-padding max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+      {/* Hero */}
+      <section ref={heroRef} className="relative pt-32 pb-24 bg-primary overflow-hidden min-h-[60vh] flex items-center">
+        <motion.div
+          style={{ y: heroY, opacity: heroOpacity }}
+          className="section-padding max-w-5xl relative z-10"
+        >
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-body text-xs uppercase tracking-[0.3em] text-gold"
           >
-            <span className="font-serif italic text-gold text-lg">Capabilities</span>
-            <h1 className="font-serif text-4xl md:text-6xl text-navy mt-2 leading-tight">
-              Our Businesses
-            </h1>
-            <p className="font-body text-base text-foreground/60 mt-6 max-w-xl">
-              Structured sectors driven by discipline, strategy, and long-term vision.
-            </p>
+            Capabilities
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
+            className="font-serif text-5xl md:text-7xl text-primary-foreground mt-4 leading-[0.95]"
+          >
+            Our<br />
+            <span className="italic text-gold">Businesses</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="font-body text-lg text-primary-foreground/50 mt-8 max-w-lg"
+          >
+            Structured sectors driven by discipline, strategy, and long-term vision.
+          </motion.p>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+            className="w-24 h-[2px] bg-gold mt-8 origin-left"
+          />
+        </motion.div>
+      </section>
+
+      {/* Sectors Grid */}
+      <section className="section-spacing bg-sand">
+        <div className="section-padding max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+            {sectorDetails.map((sector, i) => {
+              const Icon = sectorIcons[i];
+              return (
+                <motion.div
+                  key={sector.name}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-60px" }}
+                  variants={fadeUpVariant}
+                  custom={i % 2}
+                  className="bg-card p-10 md:p-12 group hover:bg-beige transition-colors duration-500"
+                >
+                  <div className="w-12 h-12 bg-beige group-hover:bg-card rounded-lg flex items-center justify-center mb-6 transition-colors duration-500">
+                    <Icon className="w-5 h-5 text-gold" />
+                  </div>
+                  <h3 className="font-serif text-xl text-navy mb-3">{sector.name}</h3>
+                  <p className="font-body text-sm text-foreground/60 leading-relaxed mb-4">{sector.description}</p>
+                  <p className="font-body text-sm text-foreground/50 leading-relaxed italic">{sector.approach}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Markets */}
+      <section className="section-spacing bg-burgundy">
+        <div className="section-padding max-w-5xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUpVariant}
+            custom={0}
+            className="mb-16"
+          >
+            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold text-center block">Reach</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-primary-foreground mt-3 text-center">Target Markets</h2>
           </motion.div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
-            {siteContent.sectors.map((sector, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {[
+              { label: "Primary", value: siteContent.markets.primary, num: "01" },
+              { label: "Secondary", value: siteContent.markets.secondary, num: "02" },
+              { label: "Global Outlook", value: siteContent.markets.global, num: "03" },
+            ].map((market, i) => (
               <motion.div
-                key={sector.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-                className="bg-card p-10"
+                key={market.label}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeUpVariant}
+                custom={i}
+                className="border border-primary-foreground/10 p-8"
               >
-                <h3 className="font-serif text-xl text-navy mb-3">{sector.name}</h3>
-                <p className="font-body text-sm text-foreground/60">{sector.description}</p>
+                <span className="font-serif text-4xl text-gold/30 font-bold">{market.num}</span>
+                <h4 className="font-body text-xs uppercase tracking-[0.2em] text-gold mt-4">{market.label}</h4>
+                <p className="font-body text-base text-primary-foreground/70 mt-3">{market.value}</p>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
+      {/* Positioning Statement */}
+      <section className="section-spacing bg-sand">
+        <div className="section-padding max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-16 bg-beige p-10"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUpVariant}
+            custom={0}
           >
-            <h3 className="font-serif text-xl text-navy mb-4">Markets</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div>
-                <span className="font-body text-xs text-gold uppercase tracking-widest">Primary</span>
-                <p className="font-body text-sm text-foreground/70 mt-1">{siteContent.markets.primary}</p>
-              </div>
-              <div>
-                <span className="font-body text-xs text-gold uppercase tracking-widest">Secondary</span>
-                <p className="font-body text-sm text-foreground/70 mt-1">{siteContent.markets.secondary}</p>
-              </div>
-              <div>
-                <span className="font-body text-xs text-gold uppercase tracking-widest">Global</span>
-                <p className="font-body text-sm text-foreground/70 mt-1">{siteContent.markets.global}</p>
-              </div>
-            </div>
+            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">Our Position</span>
+            <p className="font-serif text-xl md:text-2xl text-navy mt-6 leading-relaxed italic">
+              "Rimal Trading Group stands at the intersection of innovation and reliability. 
+              We position ourselves as a forward-thinking business group that transforms ideas 
+              into impactful ventures while earning the trust of partners, customers, and communities."
+            </p>
+            <div className="w-12 h-[2px] bg-gold mx-auto mt-8" />
           </motion.div>
         </div>
       </section>

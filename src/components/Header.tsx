@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Logo from "@/assets/Logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -19,7 +20,7 @@ const Header = () => {
       <nav className="section-padding flex items-center justify-between h-20">
         {/* Logo */}
         <Link to="/" className="font-serif text-2xl tracking-wider text-gold">
-          RTG
+          <img src={Logo} alt="RIMAL" className="h-12 opacity-80" />
         </Link>
 
         {/* Desktop Nav */}
