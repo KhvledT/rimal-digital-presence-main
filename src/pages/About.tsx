@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Layout from "@/components/Layout";
 import { siteContent } from "@/data/content";
 import Logo from "@/assets/Logo.png";
+import AboutImage from "@/assets/Driven-by-ideas.webp";
 
 const ceoMessage = `Our journey began with a simple belief: Uniqueness and Excellence lead to prosperity. Thus, we support creative ideas in our local market and try to bring innovative brands from abroad.
 
@@ -205,38 +206,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values */}
+      {/* image */}
       <section className="section-spacing bg-burgundy">
-        <div className="section-padding max-w-5xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUpVariant}
-            custom={0}
-            className="text-center mb-16"
-          >
-            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">What Drives Us</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-primary-foreground mt-3">Our Values</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {coreValues.map((v, i) => (
-              <motion.div
-                key={v.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={fadeUpVariant}
-                custom={i}
-                className="border border-primary-foreground/10 p-8 md:p-10 group hover:border-gold/40 transition-colors duration-500"
-              >
-                <span className="text-3xl mb-4 block">{v.icon}</span>
-                <h3 className="font-serif text-xl text-primary-foreground mb-3">{v.title}</h3>
-                <p className="font-body text-sm text-primary-foreground/60 leading-relaxed">{v.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="relative max-w-7xl mx-auto border-white border-8">
+          <img src={AboutImage} alt="Driven by ideas, Powered by trust" className="p-1" />
+          <div className="absolute top-0 left-0 w-full h-full"></div>
         </div>
       </section>
 

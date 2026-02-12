@@ -19,8 +19,9 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-burgundy/95 backdrop-blur-sm">
       <nav className="section-padding flex items-center justify-between h-20">
         {/* Logo */}
-        <Link to="/" className="font-serif text-2xl tracking-wider text-gold">
+        <Link to="/" className="relative font-serif text-2xl tracking-wider text-gold">
           <img src={Logo} alt="RIMAL" className="h-12 opacity-80" />
+          <div className="absolute top-0 left-0 w-full h-full"></div>
         </Link>
 
         {/* Desktop Nav */}

@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Layout from "@/components/Layout";
-import handshakeImage from "@/assets/handshake-partnership.jpg";
+import LargeLogo from '@/assets/Large_Logo.webp'
 
 const partnerCategories = [
   {
@@ -93,78 +93,6 @@ const Partners = () => {
         </motion.div>
       </section>
 
-      {/* Partnership Philosophy */}
-      <section className="section-spacing bg-sand">
-        <div className="section-padding max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUpVariant}
-              custom={0}
-            >
-              <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">Philosophy</span>
-              <h2 className="font-serif text-3xl md:text-4xl text-navy mt-3 leading-tight">
-                Built on Trust,<br />
-                <span className="italic text-primary">Not Transactions</span>
-              </h2>
-              <p className="font-body text-base text-foreground/70 leading-relaxed mt-6">
-                At Rimal, we believe that enduring partnerships are the cornerstone of lasting success. 
-                We don't just seek business relationships — we cultivate alliances that create 
-                shared value and drive meaningful impact across markets.
-              </p>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeUpVariant}
-              custom={1}
-              className="relative"
-            >
-              <div className="border border-gold/30 p-3">
-                <img src={handshakeImage} alt="Partnership" className="w-full aspect-[4/3] object-cover" />
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partnership Values */}
-      <section className="section-spacing bg-beige">
-        <div className="section-padding max-w-5xl mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={fadeUpVariant}
-            custom={0}
-            className="mb-16"
-          >
-            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold text-center block">Foundation</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-navy mt-3 text-center">What We Value in Partners</h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {partnershipValues.map((v, i) => (
-              <motion.div
-                key={v.title}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={fadeUpVariant}
-                custom={i}
-                className="border-l-2 border-gold/30 pl-8 py-4"
-              >
-                <h3 className="font-serif text-xl text-navy mb-3">{v.title}</h3>
-                <p className="font-body text-sm text-foreground/60 leading-relaxed">{v.text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Partner Categories */}
       <section className="section-spacing bg-sand">
         <div className="section-padding max-w-6xl mx-auto">
@@ -203,6 +131,79 @@ const Partners = () => {
                     </div>
                   ))}
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Philosophy */}
+      <section className="section-spacing bg-beige">
+        <div className="section-padding max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUpVariant}
+              custom={0}
+            >
+              <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">Philosophy</span>
+              <h2 className="font-serif text-3xl md:text-4xl text-navy mt-3 leading-tight">
+                Built on Trust,<br />
+                <span className="italic text-primary">Not Transactions</span>
+              </h2>
+              <p className="font-body text-base text-foreground/70 leading-relaxed mt-6">
+                At Rimal, we believe that enduring partnerships are the cornerstone of lasting success. 
+                We don't just seek business relationships — we cultivate alliances that create 
+                shared value and drive meaningful impact across markets.
+              </p>
+            </motion.div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              variants={fadeUpVariant}
+              custom={1}
+              className="relative"
+            >
+              <div className="relative border border-gold/30 p-3">
+                <img src={LargeLogo} alt="Logo" className="w-full aspect-[4/3] object-cover" />
+                <div className="absolute top-0 left-0 w-full h-full"></div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Values */}
+      <section className="section-spacing bg-sand">
+        <div className="section-padding max-w-5xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUpVariant}
+            custom={0}
+            className="mb-16"
+          >
+            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold text-center block">Foundation</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-navy mt-3 text-center">What We Value in Partners</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {partnershipValues.map((v, i) => (
+              <motion.div
+                key={v.title}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeUpVariant}
+                custom={i}
+                className="border-l-2 border-gold/30 pl-8 py-4"
+              >
+                <h3 className="font-serif text-xl text-navy mb-3">{v.title}</h3>
+                <p className="font-body text-sm text-foreground/60 leading-relaxed">{v.text}</p>
               </motion.div>
             ))}
           </div>

@@ -12,6 +12,7 @@ const HeroSection = () => {
           alt="Corporate partnership"
           className="w-full h-full object-cover scale-150 lg:scale-100"
         />
+        <div className="absolute top-0 left-0 w-full h-full"></div>
       </div>
       
       {/* Content */}

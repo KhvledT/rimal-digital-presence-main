@@ -7,12 +7,13 @@ import bgImage from "@/assets/About_Bg.webp";
 const AboutSection = () => {
   return (
     <section id="about" className="relative section-spacing bg-sand">
-      <div className="absolute top-0 left-0 w-full bg-gradient-to-br from-sand z-0 opacity-30 h-2/3 hidden lg:block">
+      <div className="absolute top-0 left-0 w-full bg-gradient-to-br from-sand z-0 opacity-30 h-5/6 lg:h-4/5 ">
         <img
           src={bgImage}
           alt="About background"
           className="w-full h-full object-cover"
         />
+        <div className="absolute top-0 left-0 w-full h-full"></div>
       </div>
       <div className="section-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -38,6 +39,7 @@ const AboutSection = () => {
                 alt="RIMAL team"
                 className="w-full aspect-[4/5] object-cover"
               />
+              <div className="absolute top-0 left-0 w-full h-full"></div>
             </div>
           </motion.div>
 
@@ -73,7 +75,7 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="mt-20 grid grid-cols-3 gap-16 w-fit "
+              className="mt-20 grid grid-cols-3 gap-16 w-fit mx-auto lg:mx-0"
             >
               {siteContent.stats.map((stat) => (
                 <div key={stat.value} className="text-center">
