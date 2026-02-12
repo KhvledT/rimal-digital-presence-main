@@ -85,7 +85,7 @@ const Header = () => {
           to="/contact"
           className="hidden md:inline-block px-6 py-2.5 bg-gold text-secondary-foreground font-body text-sm tracking-wide rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
         >
-          Explore Partnership
+          Contact Us
         </Link>
 
         {/* Mobile Toggle */}
@@ -127,7 +127,7 @@ const Header = () => {
                   onClick={() => setMobileOpen(false)}
                   className="inline-block mt-4 px-6 py-2.5 bg-gold text-secondary-foreground font-body text-sm rounded-full transition-all duration-300 hover:scale-105"
                 >
-                  Explore Partnership
+                  Contact Us
                 </Link>
               </li>
             </ul>
