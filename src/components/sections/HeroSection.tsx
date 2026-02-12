@@ -75,7 +75,7 @@ const HeroSection = () => {
             className="mt-12 flex gap-4 flex-row max-w-fit mx-auto lg:mx-0"
           >
             <Link
-              to="/contact"
+              to="/partners"
               className="
                 px-8 py-3.5
                 bg-gold
