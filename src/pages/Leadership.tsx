@@ -179,16 +179,19 @@ const Leadership = () => {
             transition={{ duration: 1 }}
             className="relative"
           >
-            <span className="absolute -top-6 left-0 md:left-8 font-serif text-[100px] text-gold/30 leading-none select-none">
-              "
-            </span>
-            <p className="font-serif italic text-2xl md:text-4xl text-primary-foreground leading-snug">
+            <span className="absolute -top-4 -left-0 font-serif text-8xl text-gold/60 leading-none select-none">
+            "
+          </span>
+            <p className="font-serif italic text-2xl md:text-4xl lg:text-5xl text-primary-foreground leading-snug">
               As we expand, we remain committed to a culture where every person
               can contribute, develop, and succeed.
             </p>
             <p className="font-body text-sm text-gold mt-6 tracking-widest uppercase">
               — Sheikh Alharith Al Thani
             </p>
+            <span className="absolute -bottom-8 right-0 md:right-8 font-serif text-8xl text-gold/60 leading-none select-none rotate-180">
+            "
+          </span>
           </motion.div>
         </div>
       </section>

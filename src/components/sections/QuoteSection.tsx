@@ -12,7 +12,7 @@ const QuoteSection = () => {
           className="max-w-4xl mx-auto text-center relative"
         >
           {/* Opening quote */}
-          <span className="absolute -top-4 left-0 md:left-8 font-serif text-8xl text-gold/60 leading-none select-none">
+          <span className="absolute -top-4 left-0 font-serif text-8xl text-gold/60 leading-none select-none">
             "
           </span>
 
