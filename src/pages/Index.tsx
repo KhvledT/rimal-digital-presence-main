@@ -5,15 +5,23 @@ import QuoteSection from "@/components/sections/QuoteSection";
 import WhyRimalSection from "@/components/sections/WhyRimalSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import ContactSection from "@/components/sections/ContactSection";
+import WhyPartnerWithRimal from "@/components/sections/WhyPartnerWithRimal";
+import Cards5 from "@/components/sections/Cards5";
+import WhatMakesUsDifferent from "@/components/sections/WhatMakesUsDifferent";
+import StrategicNumbers from "@/components/sections/StrategicNumbers";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 const Index = () => {
   return (
     <Layout>
       <HeroSection />
       <AboutSection />
-      <QuoteSection />
-      <WhyRimalSection />
+      <WhyPartnerWithRimal />
+      <Cards5 />
+      <WhatMakesUsDifferent />
       <PartnersSection />
+      <QuoteSection />
+      <FinalCTA />
       <ContactSection />
     </Layout>
   );

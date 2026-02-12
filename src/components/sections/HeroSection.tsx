@@ -1,10 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-handshake.webp";
+import profilePDF from "@/assets/Profile PDF/05 RTG - Rimal Company profile Vol.01.pdf";
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative lg:h-screen bg-burgundy flex items-center flex-col lg:flex-row">
+    <section
+      id="hero"
+      className="relative lg:h-screen bg-burgundy flex items-center flex-col lg:flex-row"
+    >
       {/* Image */}
       <div className="h-full py-28 sm:py-36 lg:py-0 lg:absolute lg:top-0 lg:right-0 w-1/2">
         <img
@@ -14,7 +18,7 @@ const HeroSection = () => {
         />
         <div className="absolute top-0 left-0 w-full h-full"></div>
       </div>
-      
+
       {/* Content */}
       <div className="relative z-30 section-padding pt-0 lg:pt-32 pb-20 w-full text-center lg:text-left">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -59,8 +63,8 @@ const HeroSection = () => {
               lg:mx-0
             "
           >
-            Strategic Trading & Investment Group
-            Driving Growth Through Vision and Trust.
+            A diversified investment and venture group operating across Retail,
+            F&B, Real Estate, and Strategic Holdings in Qatar & GCC.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -85,11 +89,10 @@ const HeroSection = () => {
                 duration-300
               "
             >
-              Contact Us
+              Explore Partnership
             </Link>
 
-            <Link
-              to="/businesses"
+            <a href={profilePDF}
               className="
                 px-8 py-3.5
                 border
@@ -102,10 +105,11 @@ const HeroSection = () => {
                 hover:border-primary-foreground/60
                 transition-colors
                 duration-300
+                cursor-pointer
               "
-            >
-              Our Business
-            </Link>
+             download>
+             Download Corporate Profile
+             </a>
           </motion.div>
         </div>
       </div>

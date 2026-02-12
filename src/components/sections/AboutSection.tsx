@@ -52,7 +52,7 @@ const AboutSection = () => {
             className="lg:pl-10 z-10"
           >
             <span className="font-serif italic text-gold text-lg">
-              who are ?
+              Who We Are?
             </span>
             <h2 className="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-primary mt-2 leading-tight">
               RIMAL

@@ -4,6 +4,8 @@ import Layout from "@/components/Layout";
 import { siteContent } from "@/data/content";
 import Logo from "@/assets/Logo.png";
 import AboutImage from "@/assets/Driven-by-ideas.webp";
+import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ceoMessage = `Our journey began with a simple belief: Uniqueness and Excellence lead to prosperity. Thus, we support creative ideas in our local market and try to bring innovative brands from abroad.
 
@@ -13,15 +15,14 @@ We believe that innovation is not a luxury; it is a responsibility. We encourage
 
 const culture = [
   { point: "Sales create revenue, but trust builds brands." },
-  { point: "A first sale keeps you running today — trust keeps you thriving for decades." },
-  { point: "People don't just buy products, they buy belief, reliability, and consistency." },
-];
-
-const coreValues = [
-  { title: "Passion", desc: "We are wholeheartedly committed to everything we do.", icon: "🔥" },
-  { title: "Creativity", desc: "Innovation is the engine that drives our success.", icon: "💡" },
-  { title: "Persistence", desc: "Growth takes time, and challenges strengthen our determination.", icon: "⚡" },
-  { title: "Humility", desc: "We grow with respect, responsibility, and integrity.", icon: "🤝" },
+  {
+    point:
+      "A first sale keeps you running today — trust keeps you thriving for decades.",
+  },
+  {
+    point:
+      "People don't just buy products, they buy belief, reliability, and consistency.",
+  },
 ];
 
 const fadeUpVariant = {
@@ -45,7 +46,10 @@ const About = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section ref={heroRef} className="relative bg-burgundy flex items-center flex-col lg:flex-row">
+      <section
+        ref={heroRef}
+        className="relative bg-burgundy flex items-center flex-col lg:flex-row"
+      >
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
           className="relative pt-20 z-30 section-padding  lg:pt-32 pb-20 w-full"
@@ -64,7 +68,8 @@ const About = () => {
             transition={{ duration: 0.9, delay: 0.15, ease: "easeOut" }}
             className="font-serif text-5xl md:text-7xl lg:text-8xl text-primary-foreground mt-4 leading-[0.95]"
           >
-            RIMAL<br />
+            RIMAL
+            <br />
             <span className="italic text-gold">Trading Group</span>
           </motion.h1>
           <motion.p
@@ -73,7 +78,8 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             className="font-body text-lg text-primary-foreground/60 mt-8 max-w-lg leading-relaxed"
           >
-            Born on 07/07/2025 — uniting diverse entrepreneurial ventures under one structured organization.
+            Established on 07/07/2025 to unify diverse entrepreneurial ventures
+            under one structured investment group.
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -85,7 +91,11 @@ const About = () => {
 
         {/* Logo image */}
         <div className="h-full hidden lg:block relative">
-          <img src={Logo} alt="" className="object-cover" />
+          <img
+            src={Logo}
+            alt="Rimal Trading Group Logo"
+            className="object-cover"
+          />
           <div className="absolute top-0 left-0 w-full h-full"></div>
         </div>
       </section>
@@ -101,9 +111,13 @@ const About = () => {
               variants={fadeUpVariant}
               custom={0}
             >
-              <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">Heritage</span>
+              <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">
+                Heritage
+              </span>
               <h2 className="font-serif text-3xl md:text-5xl text-navy mt-3 leading-tight">
-                The Name<br /><span className="italic text-primary">"Rimal"</span>
+                The Name
+                <br />
+                <span className="italic text-primary">"Rimal"</span>
               </h2>
             </motion.div>
             <motion.div
@@ -114,13 +128,15 @@ const About = () => {
               custom={1}
             >
               <p className="font-body text-base text-foreground/70 leading-relaxed">
-                Inspired by Arabian heritage, "Rimal" refers to sands — symbolizing abundance, resilience, 
-                and the land where our forefathers once lived. The name carries with it the weight of 
+                Inspired by Arabian heritage, "Rimal" refers to sands —
+                symbolizing abundance, resilience, and the land where our
+                forefathers once lived. The name carries with it the weight of
                 tradition and the promise of a bold future.
               </p>
               <p className="font-body text-base text-foreground/70 leading-relaxed mt-6">
-                {siteContent.about.description} What began as independent businesses has grown into a dynamic 
-                group that embodies unity, professionalism, and ambition.
+                {siteContent.about.description} What began as independent
+                businesses has grown into a dynamic group that embodies unity,
+                professionalism, and ambition.
               </p>
             </motion.div>
           </div>
@@ -138,10 +154,14 @@ const About = () => {
             custom={0}
             className="mb-12"
           >
-            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">Founder & CEO</span>
+            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">
+              Founder & CEO
+            </span>
             <h2 className="font-serif text-3xl md:text-4xl text-navy mt-3">
               A Message from{" "}
-              <span className="italic text-primary">Sheikh Alharith Al Thani</span>
+              <span className="italic text-primary">
+                Sheikh Alharith Al Thani
+              </span>
             </h2>
           </motion.div>
 
@@ -198,8 +218,12 @@ const About = () => {
                 className="relative"
               >
                 <div className="w-12 h-[2px] bg-gold mb-6" />
-                <h3 className="font-serif text-2xl text-navy mb-4">{item.label}</h3>
-                <p className="font-body text-base text-foreground/70 leading-relaxed">{item.text}</p>
+                <h3 className="font-serif text-2xl text-navy mb-4">
+                  {item.label}
+                </h3>
+                <p className="font-body text-base text-foreground/70 leading-relaxed">
+                  {item.text}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -208,8 +232,12 @@ const About = () => {
 
       {/* image */}
       <section className="section-spacing bg-burgundy">
-        <div className="relative max-w-7xl mx-auto border-white border-8">
-          <img src={AboutImage} alt="Driven by ideas, Powered by trust" className="p-1" />
+        <div className="relative max-w-7xl mx-auto border-white border-4">
+          <img
+            src={AboutImage}
+            alt="Driven by ideas, Powered by trust"
+            className="p-1"
+          />
           <div className="absolute top-0 left-0 w-full h-full"></div>
         </div>
       </section>
@@ -225,10 +253,15 @@ const About = () => {
             custom={0}
             className="mb-12"
           >
-            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">Philosophy</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-navy mt-3">Our Culture</h2>
+            <span className="font-body text-xs uppercase tracking-[0.3em] text-gold">
+              Philosophy
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-navy mt-3">
+              Our Culture
+            </h2>
             <p className="font-body text-base text-foreground/60 mt-4 max-w-xl">
-              At Rimal, success is a mindset, not an option. We build trust before transactions.
+              At Rimal, success is a mindset, not an option. We build trust
+              before transactions.
             </p>
           </motion.div>
 
@@ -243,12 +276,98 @@ const About = () => {
                 custom={i}
                 className="flex items-start gap-6 border-l-2 border-gold/30 pl-8 py-2"
               >
-                <span className="font-serif text-2xl text-gold/40 font-bold">0{i + 1}</span>
-                <p className="font-body text-base text-foreground/70 leading-relaxed">{item.point}</p>
+                <span className="font-serif text-2xl text-gold/40 font-bold">
+                  0{i + 1}
+                </span>
+                <p className="font-body text-base text-foreground/70 leading-relaxed">
+                  {item.point}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative bg-foreground text-white py-36 overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          {/* Headline */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: (i: number) => ({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: i * 0.15 },
+              }),
+            }}
+            custom={0}
+            className="mb-12"
+          >
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+              Explore Partnership Opportunities
+            </h2>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: (i: number) => ({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: i * 0.15 },
+              }),
+            }}
+            custom={1}
+            className="mb-20"
+          >
+            <Link to={'/partners'} className="bg-gold text-foreground font-medium px-10 py-4 rounded-full text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              Partners
+            </Link>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: (i: number) => ({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: i * 0.15 },
+              }),
+            }}
+            custom={2}
+            className="flex flex-col md:flex-row items-center justify-center gap-10 text-white/70 text-sm"
+          >
+            <div className="flex items-center gap-3 hover:text-white transition">
+              <Mail size={16} />
+              <span>contact@rimalholding.com</span>
+            </div>
+
+            <div className="flex items-center gap-3 hover:text-white transition">
+              <Linkedin size={16} />
+              <span>linkedin.com/company/rimalholding</span>
+            </div>
+
+            <div className="flex items-center gap-3 hover:text-white transition">
+              <MapPin size={16} />
+              <span>Doha, Qatar</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Subtle Background Accent */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent pointer-events-none" />
       </section>
     </Layout>
   );

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { siteContent } from "@/data/content";
-import instagramIcon from '@/assets/Icons/InstagramIcon.png'
-import linkedinIcon from '@/assets/Icons/LinkedinIcon.png'
-import twitterIcon from '@/assets/Icons/TwitterIcon.png'
+import instagramIcon from "@/assets/Icons/InstagramIcon.png";
+import linkedinIcon from "@/assets/Icons/LinkedinIcon.png";
+import twitterIcon from "@/assets/Icons/TwitterIcon.png";
+import Logo from "@/assets/Logo.png";
 
 const quickLinks = [
   { label: "About Us", path: "/about" },
@@ -37,6 +38,12 @@ const Footer = () => {
                 </a>
               ))}
             </div>
+            <div className="flex flex-col gap-2 pt-2">
+              <p>CR No.</p>
+              <p>Doha, Qatar</p>
+              <p>info@rimalgroup.qa</p>
+              <p>+974 XXXXXXXX</p>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -62,6 +69,11 @@ const Footer = () => {
             <p className="font-body text-sm leading-relaxed text-beige/60">
               {siteContent.footerTagline}
             </p>
+
+            <div className="flex justify-center sm:justify-end pt-5 relative">
+              <img src={Logo} alt="Rimal Corporate Mark" className="h-20 " />
+              <div className="absolute top-0 left-0 w-full h-full"></div>
+            </div>
           </div>
         </div>
 

@@ -71,7 +71,7 @@ const Contact = () => {
 
       {/* Contact Form & Info */}
       <section className="section-spacing bg-sand">
-        <div className="section-padding max-w-5xl">
+        <div className="section-padding max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <motion.form

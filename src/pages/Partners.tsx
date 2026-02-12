@@ -82,7 +82,7 @@ const Partners = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-body text-lg text-primary-foreground/50 mt-8 max-w-lg"
           >
-            Long-term relationships built on mutual respect, shared values, and strategic alignment.
+            Strategic alliances powering expansion across Qatar & GCC.
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -168,7 +168,7 @@ const Partners = () => {
               className="relative"
             >
               <div className="relative border border-gold/30 p-3">
-                <img src={LargeLogo} alt="Logo" className="w-full aspect-[4/3] object-cover" />
+                <img src={LargeLogo} alt="Rimal Corporate Mark" className="w-full aspect-[4/3] object-cover" />
                 <div className="absolute top-0 left-0 w-full h-full"></div>
               </div>
             </motion.div>

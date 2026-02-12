@@ -2,7 +2,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Layout from "@/components/Layout";
 import { siteContent } from "@/data/content";
-import { ShoppingBag, Utensils, Building2, Briefcase, Factory, Monitor } from "lucide-react";
+import { ShoppingBag, Utensils, Building2, Briefcase, Factory, Monitor, Mail, Linkedin, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const sectorIcons = [ShoppingBag, Utensils, Building2, Briefcase, Factory, Monitor];
 
@@ -88,7 +89,7 @@ const Businesses = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-body text-lg text-primary-foreground/50 mt-8 max-w-lg"
           >
-            Structured sectors driven by discipline, strategy, and long-term vision.
+            Six structured sectors engineered for scalable regional growth.
           </motion.p>
           <motion.div
             initial={{ scaleX: 0 }}
@@ -112,7 +113,7 @@ const Businesses = () => {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-60px" }}
                   variants={fadeUpVariant}
-                  custom={i % 2}
+                  custom={i}
                   className="bg-card p-10 md:p-12 group hover:bg-beige transition-colors duration-500"
                 >
                   <div className="w-12 h-12 bg-beige group-hover:bg-card rounded-lg flex items-center justify-center mb-6 transition-colors duration-500">
@@ -145,9 +146,9 @@ const Businesses = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { label: "Primary", value: siteContent.markets.primary, num: "01" },
-              { label: "Secondary", value: siteContent.markets.secondary, num: "02" },
-              { label: "Global Outlook", value: siteContent.markets.global, num: "03" },
+              { label: "Qatar & GCC (Primary)", value: siteContent.markets.primary, num: "01" },
+              { label: "MENA (Secondary)", value: siteContent.markets.secondary, num: "02" },
+              { label: "International Expansion (Strategic Vision)", value: siteContent.markets.global, num: "03" },
             ].map((market, i) => (
               <motion.div
                 key={market.label}
@@ -186,6 +187,88 @@ const Businesses = () => {
             <div className="w-12 h-[2px] bg-gold mx-auto mt-8" />
           </motion.div>
         </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative bg-foreground text-white py-36 overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          {/* Headline */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: (i: number) => ({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: i * 0.15 },
+              }),
+            }}
+            custom={0}
+            className="mb-12"
+          >
+            <h2 className="font-serif text-4xl md:text-5xl leading-tight">
+              Explore Partnership Opportunities
+            </h2>
+          </motion.div>
+
+          {/* CTA Button */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: (i: number) => ({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: i * 0.15 },
+              }),
+            }}
+            custom={1}
+            className="mb-20"
+          >
+            <Link to={'/partners'} className="bg-gold text-foreground font-medium px-10 py-4 rounded-full text-sm tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              Partners
+            </Link>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, y: 40 },
+              visible: (i: number) => ({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.7, delay: i * 0.15 },
+              }),
+            }}
+            custom={2}
+            className="flex flex-col md:flex-row items-center justify-center gap-10 text-white/70 text-sm"
+          >
+            <div className="flex items-center gap-3 hover:text-white transition">
+              <Mail size={16} />
+              <span>contact@rimalholding.com</span>
+            </div>
+
+            <div className="flex items-center gap-3 hover:text-white transition">
+              <Linkedin size={16} />
+              <span>linkedin.com/company/rimalholding</span>
+            </div>
+
+            <div className="flex items-center gap-3 hover:text-white transition">
+              <MapPin size={16} />
+              <span>Doha, Qatar</span>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Subtle Background Accent */}
+        <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent pointer-events-none" />
       </section>
     </Layout>
   );
